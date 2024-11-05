@@ -1,9 +1,87 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+}
+
 table , th , td {
     border: 1px solid;
     text-align: center;
-    margin: auto;
+  
+}
+
+table {
+    margin: 40px;
 }
 
 th {
-    width: 120px;
+    width: 180px;
+    height: 50px;
+}
+
+td {
+    height: 30px;
+}
+
+hr {
+    margin: 40px;
+}
+
+h1 {
+    margin: auto;
+}
+
+.users-table {
+    margin: auto;
+    padding: 40px 0px 0px 0px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-form-input {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px 0px 0px;
+}
+
+.users-form h1 {
+    margin: 0px 0px 15px 0px;
+}
+
+.label {
+    width: 100px;
+    display: inline-block;
+    padding: 0px 0px 0px 5px;
+}
+
+.users-form-input div input {
+    width: 150px;
+    padding:4px;
+}
+
+.btn-add {
+    margin: 20px;
+    width: 100px;
+    font-size: 20px;
+}
+
+.btn-add:hover {
+    cursor: pointer;
 }
