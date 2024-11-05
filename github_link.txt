@@ -1,0 +1,1 @@
+https://github.com/Zughayyar/Single-Model-ORM.git
