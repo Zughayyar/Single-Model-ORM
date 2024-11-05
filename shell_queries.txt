@@ -1,0 +1,73 @@
+// Assignment: Users(Shell)
+// Anas Zughayyar
+
+Submit your .txt file that contains all the queries you ran in the shell
+
+// Run the shell and import your User model //
+❯ python manage.py shell 
+In [4]: from users_app.models import User
+
+
+// Query: Create 3 new users //
+In [6]: User.objects.create(
+   ...: first_name = "Anas" ,
+   ...: last_name = "Zughayyar" ,
+   ...: email_address = "anas@axsos.academy" ,
+   ...: age = 31
+   ...: )
+Out[6]: <User: User object (2)>
+
+In [7]: User.objects.create(
+   ...: first_name = "Ali" ,
+   ...: last_name = "Rayyan" ,
+   ...: email_address = "ali@axsos.academy" ,
+   ...: age = 20
+   ...: )
+Out[7]: <User: User object (3)>
+
+In [8]: User.objects.create(
+   ...: first_name = "Omar" ,
+   ...: last_name = "Rayyan" ,
+   ...: email_address = "omar@axsos.academy" ,
+   ...: age = 18
+   ...: )
+Out[8]: <User: User object (4)>
+
+
+// Query: Retrieve all the users //
+In [12]: User.objects.all()
+Out[12]: <QuerySet [<User: User object (2)>, <User: User object (3)>, <User: User object (4)>]>
+
+
+// Query: Retrieve the last user //
+In [18]: User.objects.last()
+Out[18]: <User: User object (4)>
+
+
+// Query: Retrieve the first user //
+In [19]: User.objects.first()
+Out[19]: <User: User object (2)>
+
+
+// Query: Change the user with id=3 so their last name is Pancakes. //
+In [20]: c = User.objects.get(id=3)
+In [21]: c.last_name = "Pancakes"
+In [22]: c.save()
+
+
+// Query: Delete the user with id=2 from the database //
+In [25]: c = User.objects.get(id=2)
+In [26]: c.delete()
+Out[26]: (1, {'users_app.User': 1})
+
+
+// Query: Get all the users, sorted by their first name //
+In [28]: User.objects.all().order_by("first_name")
+Out[28]: <QuerySet [<User: User object (3)>, <User: User object (4)>]>
+
+
+// BONUS Query: Get all the users, sorted by their first name in descending order //
+In [32]: User.objects.all().order_by("-first_name")
+Out[32]: <QuerySet [<User: User object (4)>, <User: User object (3)>]>
+
+
