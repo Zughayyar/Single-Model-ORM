@@ -10,9 +10,11 @@ def index(request):
     return render(request, "index.html" , context)
 
 def add(request):
-    models.insert_to_users(request.POST)
+    if request.method == "POST":
+        models.insert_to_users(request.POST)
     return redirect('/')
 
 def remove(request, id):
-    models.delete_from_users(id)
+    if request.method == "GET":
+        models.delete_from_users(id)
     return redirect('/')
