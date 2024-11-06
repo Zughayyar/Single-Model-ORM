@@ -12,4 +12,16 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+def insert_to_users(data):
+    first_name = data['first_name']
+    last_name = data['last_name']
+    email_address = data['email_address']
+    age = data['age']
+    User.objects.create(first_name = first_name, last_name = last_name , email_address = email_address , age = age)
 
+def get_all_users():
+    return User.objects.all()
+
+def delete_from_users(user_id):
+    c = User.objects.get(id = user_id)
+    c.delete()

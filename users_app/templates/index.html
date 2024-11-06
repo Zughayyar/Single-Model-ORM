@@ -18,6 +18,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Age</th>
+                <th>Action</th>
             </tr>
             {% for i in users %}
             <tr>
@@ -26,6 +27,7 @@
                 <td>{{ i.last_name }}</td>
                 <td>{{ i.email_address }}</td>
                 <td>{{ i.age }}</td>
+                <td> <a href="/remove/{{i.id}}">DELETE</a></td>
             </tr>
             {% endfor %}
           </table>
@@ -65,11 +67,5 @@
             <input class="btn-add" type="submit" value="Add">
         </form>
         <hr>
-        <form class="users-form" action="/remove" method="post">
-            {% csrf_token %}
-            <label for="">Insert ID to remove</label>
-            <input type="text" name="id" required>
-            <input class="btn-add" type="submit" value="remove">
-        </form>
 </body>
 </html>

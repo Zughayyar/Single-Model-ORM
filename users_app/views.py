@@ -1,25 +1,18 @@
 from django.shortcuts import render, redirect
-from .models import User
+from . import models
 
 
 # Create your views here.
 def index(request):
     context = {
-        'users' : User.objects.all()
+        'users' : models.get_all_users()
     }
     return render(request, "index.html" , context)
 
 def add(request):
-    first_name = request.POST['first_name']
-    last_name = request.POST['last_name']
-    email_address = request.POST['email_address']
-    age = request.POST['age']
-    User.objects.create(first_name = first_name, last_name = last_name , email_address = email_address , age = age)
+    models.insert_to_users(request.POST)
     return redirect('/')
 
-def remove(request):
-    user_id = request.POST['id']
-    c = User.objects.get(id = user_id)
-    print("value of c" , c)
-    c.delete()
+def remove(request, id):
+    models.delete_from_users(id)
     return redirect('/')
